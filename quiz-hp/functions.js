@@ -6,11 +6,15 @@ indiceAlternativa = carregarPergunta(indicePergunta,indiceAlternativa2); //4
 function carregarPergunta(indicePergunta,indiceAlternativa2){
     'use restrict';
     if(indiceAlternativa === 25){
-        document.querySelector('#pergunta').textContent = "Parabéns! Seu resultado foi de " + acertos + " acertos.";
-        for(var i = 0; i < 4; i++){ 
-            alert("Acertos " + acertos);
-            document.querySelector('#secaoAlternativas').innerHTML = "<p></p>";
-        } 
+        if(acertos === 0){
+            document.querySelector('#pergunta').textContent = "Ixi! Você teve " + acertos + " acerto."; 
+        }else if(acertos === 1){
+            document.querySelector('#pergunta').textContent = "Dumbledore está decepcionado! Você teve " + acertos + " acerto."; 
+        }
+        else{
+            document.querySelector('#pergunta').textContent = "Malfeito feito! Seu resultado foi de " + acertos + " acertos."; 
+        }
+        document.querySelector('#secaoAlternativas').innerHTML = "<p></p>";
     }
     else{
         document.querySelector('#pergunta').textContent = arrayPerguntas[indicePergunta];
